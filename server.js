@@ -1,9 +1,11 @@
+const dotenv = require('dotenv');
+dotenv.config(); // Must be first — before auth.js reads process.env
+
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const connectDB = require('./config/db');
-
-dotenv.config();
+const { toNodeHandler } = require('better-auth/node');
+const auth = require('./config/auth');
 
 const app = express();
 
@@ -12,10 +14,14 @@ connectDB();
 
 // Middleware
 app.use(cors({
-  origin: '*',
+  origin: ['http://localhost:3000'],
   credentials: true
 }));
 app.use(express.json());
+
+// Better Auth Handler — must be BEFORE other routes
+// Handles all /api/auth/* routes including Google OAuth redirect & callback
+app.all('/api/auth/*', toNodeHandler(auth));
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
