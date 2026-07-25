@@ -13,7 +13,7 @@ Welcome to the server repository for **DocAppoint**, a secure Doctor Appointment
 Create a `.env` file in the root of the server directory:
 ```env
 PORT=5000
-MONGODB_URI=mongodb+srv://araf:araf292929@araf.pbvm7ez.mongodb.net/?appName=Araf
+MONGODB_URI=mongodb+srv://araf:araf********@araf.pbvm7ez.mongodb.net/?appName=Araf
 JWT_SECRET=docappoint_jwt_secret_key_2026_super_secure
 ```
 
