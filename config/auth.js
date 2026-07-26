@@ -6,7 +6,7 @@ const auth = betterAuth({
   database: mongodbAdapter(mongoose.connection),
   secret: process.env.AUTH_SECRET || 'docappoint_auth_secret_2026',
   basePath: '/api/auth',
-  baseURL: process.env.NEXT_PUBLIC_AUTH_URL,
+  baseURL: process.env.BETTER_AUTH_URL || 'https://docappoint-server-mvur.onrender.com',
   trustedOrigins: [
     'http://localhost:3000',
     'http://localhost:5000',
