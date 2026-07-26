@@ -15,16 +15,17 @@ connectDB();
 // Middleware
 const allowedOrigins = [
   'http://localhost:3000',
+  'http://localhost:5000',
+  'https://doc-appoint-client-nu.vercel.app',
   ...(process.env.CLIENT_URL ? process.env.CLIENT_URL.split(',').map(url => url.trim()) : [])
 ];
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (e.g. mobile apps, Postman) or matching allowedOrigins
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
       return callback(null, true);
     }
-    return callback(new Error(`CORS policy does not allow access from origin: ${origin}`));
+    return callback(null, origin);
   },
   credentials: true
 }));
