@@ -6,7 +6,7 @@ const auth = betterAuth({
   database: mongodbAdapter(mongoose.connection),
   secret: process.env.AUTH_SECRET || 'docappoint_auth_secret_2026',
   basePath: '/api/auth',
-  baseURL: process.env.BETTER_AUTH_URL || 'https://docappoint-server-mvur.onrender.com',
+  baseURL: process.env.BETTER_AUTH_URL || 'http://localhost:5000',
   trustedOrigins: [
     'http://localhost:3000',
     'http://localhost:5000',
@@ -32,7 +32,7 @@ const auth = betterAuth({
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID || '',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
-      redirectURI: (process.env.BETTER_AUTH_URL || 'https://docappoint-server-mvur.onrender.com') + '/api/auth/callback/google',
+      redirectURI: (process.env.BETTER_AUTH_URL || 'http://localhost:5000') + '/api/auth/callback/google',
     },
     github: {
       clientId: process.env.GITHUB_CLIENT_ID || '',
