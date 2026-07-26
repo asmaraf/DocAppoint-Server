@@ -7,7 +7,12 @@ const auth = betterAuth({
   secret: process.env.AUTH_SECRET || 'docappoint_auth_secret_2026',
   basePath: '/api/auth',
   baseURL: process.env.BETTER_AUTH_URL || 'http://localhost:5000',
-  trustedOrigins: ['http://localhost:3000', 'http://localhost:5000'],
+  trustedOrigins: [
+    'http://localhost:3000',
+    'http://localhost:5000',
+    'https://doc-appoint-client-nu.vercel.app',
+    ...(process.env.CLIENT_URL ? process.env.CLIENT_URL.split(',').map(url => url.trim()) : [])
+  ],
   
   emailAndPassword: {
     enabled: true,
