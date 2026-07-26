@@ -1,5 +1,8 @@
 # Doctor Appointment Manager (DocAppoint) - Backend Server API
 
+- **Live Server API URL**: [https://docappoint-server-mvur.onrender.com](https://docappoint-server-mvur.onrender.com)
+- **Live Web Application URL**: [https://doc-appoint-client-nu.vercel.app](https://doc-appoint-client-nu.vercel.app)
+
 Welcome to the server repository for **DocAppoint**, a secure Doctor Appointment Booking API powered by Node.js, Express, and MongoDB.
 
 ## Features
