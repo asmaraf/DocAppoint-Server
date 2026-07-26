@@ -14,6 +14,14 @@ const auth = betterAuth({
     ...(process.env.CLIENT_URL ? process.env.CLIENT_URL.split(',').map(url => url.trim()) : [])
   ],
   
+  advanced: {
+    defaultCookieAttributes: {
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      path: '/',
+    },
+  },
+  
   emailAndPassword: {
     enabled: true,
     minPasswordLength: 8,
@@ -23,7 +31,8 @@ const auth = betterAuth({
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID || '',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || ''
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+      redirectURI: (process.env.BETTER_AUTH_URL || 'https://docappoint-server-mvur.onrender.com') + '/api/auth/callback/google',
     },
     github: {
       clientId: process.env.GITHUB_CLIENT_ID || '',

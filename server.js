@@ -9,6 +9,9 @@ const auth = require('./config/auth');
 
 const app = express();
 
+// Trust Render's reverse proxy — required for secure cookies behind HTTPS proxy
+app.set('trust proxy', 1);
+
 // Connect to Database
 connectDB();
 
