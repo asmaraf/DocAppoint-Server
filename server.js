@@ -13,8 +13,19 @@ const app = express();
 connectDB();
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:3000',
+  ...(process.env.CLIENT_URL ? process.env.CLIENT_URL.split(',').map(url => url.trim()) : [])
+];
+
 app.use(cors({
-  origin: ['http://localhost:3000'],
+  origin: (origin, callback) => {
+    // Allow requests with no origin (e.g. mobile apps, Postman) or matching allowedOrigins
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error(`CORS policy does not allow access from origin: ${origin}`));
+  },
   credentials: true
 }));
 app.use(express.json());
