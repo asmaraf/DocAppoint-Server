@@ -64,13 +64,15 @@ This backend server handles all business logic for the Doctor Appointment Manage
 
 ## 📦 Main Dependencies
 
-- express
-- mongoose
-- jsonwebtoken
-- bcryptjs
-- cors
-- dotenv
-- nodemon
+| Dependency | Purpose |
+|------------|---------|
+| Express.js | Backend API Development |
+| Mongoose | MongoDB Database Management |
+| JWT | User Authentication |
+| BcryptJS | Password Encryption |
+| CORS | Cross-Origin Handling |
+| Dotenv | Environment Configuration |
+| Nodemon | Automatic Server Restart |
 
 ---
 
