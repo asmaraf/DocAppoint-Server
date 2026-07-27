@@ -1,48 +1,210 @@
-# Doctor Appointment Manager (DocAppoint) - Backend Server API
+# 🩺 Doctor Appointment Manager (DocAppoint) - Backend Server API
 
-- **Live Server API URL**: [https://docappoint-server-mvur.onrender.com](https://docappoint-server-mvur.onrender.com)
-- **Live Web Application URL**: [https://doc-appoint-client-nu.vercel.app](https://doc-appoint-client-nu.vercel.app)
+DocAppoint Backend is a RESTful API that powers the Doctor Appointment Management System. It provides secure authentication, doctor management, appointment booking, and review management using Node.js, Express.js, MongoDB, and JWT authentication.
 
-Welcome to the server repository for **DocAppoint**, a secure Doctor Appointment Booking API powered by Node.js, Express, and MongoDB.
+---
 
-## Features
-- **Better Auth Compatible JWT Authentication**: Secure user login, registration, and social provider login.
-- **Doctor Catalog & Search**: Browse specialists with real-time search filtering, fee sorting, and pagination.
-- **Appointment Management**: Create, read user-specific bookings, controlled pre-filled updates, and instant deletion.
-- **Doctor Reviews & Ratings System**: Authenticated review postings with automatic rating average calculation.
-- **MongoDB Atlas Integration**: Reliable cloud persistence for users, doctors, appointments, and reviews.
+## 🌐 Live Links
 
-## Environment Variables
-Create a `.env` file in the root of the server directory:
+- **Server API:** https://docappoint-server-mvur.onrender.com
+- **Client Application:** https://doc-appoint-client-nu.vercel.app
+
+---
+
+## 📖 Project Overview
+
+This backend server handles all business logic for the Doctor Appointment Management System. It provides secure user authentication, doctor search, appointment management, and review functionality while ensuring data integrity and scalability through MongoDB Atlas.
+
+---
+
+## ✨ Key Features
+
+- 🔐 Secure JWT Authentication
+- 👤 User Registration & Login
+- 🔑 Better Auth Compatible Social Login
+- 🩺 Doctor Catalog with Search, Sorting & Pagination
+- 📅 Appointment Booking & Management
+- ✏️ Update Existing Appointments
+- ❌ Delete Appointments
+- ⭐ Doctor Reviews & Ratings
+- 📊 Automatic Average Rating Calculation
+- ☁️ MongoDB Atlas Cloud Database
+- 🛡️ Password Hashing using BcryptJS
+- 🌐 RESTful API Architecture
+
+---
+
+## 🛠️ Tech Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb" />
+</p>
+
+### Backend
+
+- Node.js
+- Express.js
+
+### Database
+
+- MongoDB Atlas
+- Mongoose
+
+### Authentication
+
+- JWT (JSON Web Token)
+- BcryptJS
+
+### Other Packages
+
+- CORS
+- Dotenv
+
+---
+
+## 📦 Main Dependencies
+
+- express
+- mongoose
+- jsonwebtoken
+- bcryptjs
+- cors
+- dotenv
+- nodemon
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the project root.
+
 ```env
 PORT=5000
-MONGODB_URI=your_mongodb_connection_string_here
+
+MONGODB_URI=your_mongodb_connection_string
+
 JWT_SECRET=docappoint_jwt_secret_key_2026_super_secure
 ```
 
-## Getting Started
+---
+
+## 🚀 Getting Started
+
+### Clone Repository
+
 ```bash
-# Install dependencies
+git clone https://github.com/asmaraf/DocAppoint-Server.git
+```
+
+### Navigate to Project
+
+```bash
+cd DocAppoint-Server
+```
+
+### Install Dependencies
+
+```bash
 npm install
+```
 
-# Seed sample doctors data
+### Seed Sample Doctors
+
+```bash
 npm run seed
+```
 
-# Start server
+### Start Development Server
+
+```bash
 npm start
 ```
 
-## API Endpoints Overview
-- `POST /api/auth/register` - User registration with strict password validation
-- `POST /api/auth/login` - User login & JWT issuance
-- `POST /api/auth/social-login` - Social authentication handler
-- `GET /api/auth/me` - Get profile of logged-in user
-- `PUT /api/auth/profile` - Update user profile details
-- `GET /api/doctors` - Get doctors list (supports `?search=` and `?sortBy=`)
-- `GET /api/doctors/:id` - Get single doctor details
-- `GET /api/appointments` - Get user's appointments
-- `POST /api/appointments` - Book new appointment
-- `PUT /api/appointments/:id` - Update appointment details
-- `DELETE /api/appointments/:id` - Delete appointment
-- `GET /api/reviews/:doctorId` - Get doctor reviews
-- `POST /api/reviews` - Post a review for a doctor
+The server will run at:
+
+```
+http://localhost:5000
+```
+
+---
+
+## 📡 API Endpoints
+
+### Authentication
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register a new user |
+| POST | `/api/auth/login` | User login |
+| POST | `/api/auth/social-login` | Social authentication |
+| GET | `/api/auth/me` | Get logged-in user |
+| PUT | `/api/auth/profile` | Update user profile |
+
+---
+
+### Doctors
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/doctors` | Get all doctors (supports search & sorting) |
+| GET | `/api/doctors/:id` | Get single doctor details |
+
+---
+
+### Appointments
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/appointments` | Get user appointments |
+| POST | `/api/appointments` | Create appointment |
+| PUT | `/api/appointments/:id` | Update appointment |
+| DELETE | `/api/appointments/:id` | Delete appointment |
+
+---
+
+### Reviews
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/reviews/:doctorId` | Get doctor reviews |
+| POST | `/api/reviews` | Submit a doctor review |
+
+---
+
+## 📂 Project Structure
+
+```
+DocAppoint-Server
+│
+├── config
+├── controllers
+├── middleware
+├── models
+├── routes
+├── scripts
+├── utils
+├── server.js
+├── package.json
+└── README.md
+```
+
+---
+
+## 🔗 Related Links
+
+- 🌐 Live Client: https://doc-appoint-client-nu.vercel.app
+- ⚙️ Live API: https://docappoint-server-mvur.onrender.com
+
+---
+
+## 👨‍💻 Author
+
+**ASM Araf**
+
+GitHub: https://github.com/asmaraf
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
